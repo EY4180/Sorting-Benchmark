@@ -8,7 +8,7 @@
 #define DATA_FILE "data.dat"
 #define GRAPH_FILE "graph.txt"
 #define MAX_DATA_POINTS (1 << 8)
-#define ITERATION_MULTIPLIER (1 << 10)
+#define ITERATION_MULTIPLIER (1 << 6)
 
 void update_data_file(long **results, int iterations, int tests)
 {
@@ -70,7 +70,7 @@ int main(int argc, char const *argv[])
 			simulation_times[iteration][n] = result;
 		}
 
-		printf("iteration %li complete", iteration);
+		printf("iteration %li complete\n", iteration);
 	}
 
 	update_data_file(simulation_times, MAX_DATA_POINTS, total_benchmarks);
