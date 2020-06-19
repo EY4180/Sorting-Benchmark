@@ -1,12 +1,5 @@
 #include "sorting.h"
 
-void swap(int *a, int *b)
-{
-	int temp = *a;
-	*a = *b;
-	*b = temp;
-}
-
 void quick_sort(int *arr, int low, int high)
 {
 	if (high > low)
