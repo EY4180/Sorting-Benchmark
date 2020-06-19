@@ -7,7 +7,7 @@ CC = gcc
 
 # build main program that depends on all objects
 $(PROGRAM) : $(OBJECTS)
-	$(CC) $(CFLAGS) -o $(PROGRAM) $(OBJECTS)
+	$(CC) $(CFLAGS) -o $(PROGRAM) $(OBJECTS) -lpthread
 
 # all object files depend on their respective c files and a single header
 %.o : %.c $(HEADERS)
