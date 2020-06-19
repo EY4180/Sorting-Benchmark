@@ -12,9 +12,7 @@ void bubble_sort(int *arr, int size)
 		{
 			if (arr[pos] > arr[pos + 1])
 			{
-				int temp = arr[pos + 1];
-				arr[pos + 1] = arr[pos];
-				arr[pos] = temp;
+				swap(arr + pos, arr + pos + 1);
 				++total_swaps;	
 			}
 			
