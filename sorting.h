@@ -4,8 +4,15 @@
 #include <stdio.h>
 #include <stdint.h>
 
-
 typedef void* (*bench)(void*);
+typedef void (*sort)(int *arr, int size);
+
+typedef struct benchmark_parameters 
+{
+    int size;
+    int *arr;
+    sort func;
+} BENCHMARK_PARAMETERS;
 
 extern void radix_sort(int *array, int size, int max);
 extern void *radix_bench(void *args);
