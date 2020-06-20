@@ -1,5 +1,14 @@
 #include "sorting.h"
 
+int largest(int *arr, int size)
+{
+    int number = *arr;
+    for (int pos = 1; pos < size; ++pos)
+        number = (arr[pos] > number)*arr[pos];
+    
+    return log2(number);
+}
+
 void swap(int *a, int *b)
 {
     int temp = *a;
