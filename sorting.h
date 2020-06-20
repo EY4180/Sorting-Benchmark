@@ -5,7 +5,6 @@
 #include <stdint.h>
 #include <math.h>
 
-typedef void* (*bench)(void*);
 typedef void (*sort)(int *arr, int size);
 
 typedef struct benchmark_parameters 
