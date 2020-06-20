@@ -16,21 +16,23 @@ typedef struct benchmark_parameters
 } BENCHMARK_PARAMETERS;
 
 extern void radix_sort(int *array, int size, int max);
-extern void *radix_bench(void *args);
+extern void t_radix(int *arr, int size);
 
-extern int merge_sort(int *arr, int start, int end);
-extern void *merge_bench(void *input);
+extern void merge_sort(int *arr, int start, int end);
+extern void t_merge(int *arr, int size);
 
 extern void insertion_sort(int *arr, int size);
-extern void *insertion_bench(void *input);
+extern void t_insert(int *arr, int size);
 
 extern void bubble_sort(int *arr, int size);
-extern void *bubble_bench(void *input);
+extern void t_bubble(int *arr, int size);
 
 extern void quick_sort(int *arr, int low, int high);
-extern void *quick_bench(void *input);
+extern void t_quick(int *arr, int size);
 
 extern void swap(int *a, int *b);
+extern int largest(int *arr, int size);
+extern void *benchmark(void *args);
 
 extern void shell_sort(int *arr, int size);
-extern void *shell_bench(void *input);
+extern void t_shell(int *arr, int size);

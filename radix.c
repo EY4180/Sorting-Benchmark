@@ -26,22 +26,8 @@ void radix_sort(int *array, int size, int max)
 	free(counter);
 }
 
-void *radix_bench(void *input)
+void t_radix(int *arr, int size)
 {
-	long *args = input;
-	
-	int *arr = malloc(sizeof(int) * args[0]);
-	srand(time(0)); // initialize random number generator
-	for (int i = 0; i < args[0]; ++i)
-		arr[i] = rand() % (1 << args[1]);
-
-	struct timeval stop, start;
-
-	gettimeofday(&start, NULL);
-	radix_sort(arr, args[0], args[1]); // begin radix sort with array of length n
-	gettimeofday(&stop, NULL);
-
-	free(arr);
-
-	return (void *) (intptr_t) ((stop.tv_sec - start.tv_sec) * 1000000 + stop.tv_usec - start.tv_usec);
+	int max = largest(arr, size);
+	radix_sort(arr, size, max);
 }

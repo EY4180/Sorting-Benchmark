@@ -16,22 +16,7 @@ void insertion_sort(int *arr, int size)
 	}
 }
 
-void *insertion_bench(void *input)
+void t_insert(int *arr, int size)
 {
-	long *args = input;
-
-	int *arr = malloc(sizeof(int) * args[0]);
-	srand(time(0)); // initialize random number generator
-	for (int i = 0; i < args[0]; ++i)
-		arr[i] = rand() % (1 << args[1]);
-
-	struct timeval stop, start;
-
-	gettimeofday(&start, NULL);
-	insertion_sort(arr, args[0]);
-	gettimeofday(&stop, NULL);
-
-	free(arr);
-
-	return (void *) (intptr_t) ((stop.tv_sec - start.tv_sec) * 1000000 + stop.tv_usec - start.tv_usec);
+	insertion_sort(arr, size);
 }

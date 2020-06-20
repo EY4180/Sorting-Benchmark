@@ -19,22 +19,7 @@ void quick_sort(int *arr, int low, int high)
 	}
 }
 
-void *quick_bench(void *input)
+void t_quick(int *arr, int size)
 {
-	long *args = input;
-	
-	int *arr = malloc(sizeof(int) * args[0]);
-	srand(time(0)); // initialize random number generator
-	for (int i = 0; i < args[0]; ++i)
-		arr[i] = rand() % (1 << args[1]);
-
-	struct timeval stop, start;
-
-	gettimeofday(&start, NULL);
-	quick_sort(arr,0 , args[0] - 1); 
-	gettimeofday(&stop, NULL);
-
-	free(arr);
-
-	return (void *) (intptr_t) ((stop.tv_sec - start.tv_sec) * 1000000 + stop.tv_usec - start.tv_usec);
+	quick_sort(arr, 0, size - 1);
 }
