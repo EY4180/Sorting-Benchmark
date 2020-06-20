@@ -21,3 +21,6 @@ extern void quick_sort(int *arr, int low, int high);
 extern void *quick_bench(void *input);
 
 extern void swap(int *a, int *b);
+
+extern void shell_sort(int *arr, int size);
+extern void shell_bench(void *args);
