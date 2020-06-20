@@ -36,5 +36,5 @@ void *quick_bench(void *input)
 
 	free(arr);
 
-	return (stop.tv_sec - start.tv_sec) * 1000000 + stop.tv_usec - start.tv_usec;
+	return (void *) ((stop.tv_sec - start.tv_sec) * 1000000 + stop.tv_usec - start.tv_usec);
 }

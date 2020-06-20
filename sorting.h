@@ -2,6 +2,8 @@
 #include <sys/time.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdint.h>
+
 
 typedef void* (*bench)(void*);
 
@@ -23,4 +25,4 @@ extern void *quick_bench(void *input);
 extern void swap(int *a, int *b);
 
 extern void shell_sort(int *arr, int size);
-extern void shell_bench(void *args);
+extern void shell_bench(void *input);
