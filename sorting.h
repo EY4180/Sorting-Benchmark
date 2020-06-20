@@ -25,4 +25,4 @@ extern void *quick_bench(void *input);
 extern void swap(int *a, int *b);
 
 extern void shell_sort(int *arr, int size);
-extern void shell_bench(void *input);
+extern void *shell_bench(void *input);

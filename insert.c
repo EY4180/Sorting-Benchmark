@@ -33,5 +33,5 @@ void *insertion_bench(void *input)
 
 	free(arr);
 
-	return (void *) ((stop.tv_sec - start.tv_sec) * 1000000 + stop.tv_usec - start.tv_usec);
+	return (void *) (intptr_t) ((stop.tv_sec - start.tv_sec) * 1000000 + stop.tv_usec - start.tv_usec);
 }

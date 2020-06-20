@@ -7,7 +7,7 @@
 #define MAX_THREADS 8
 #define DATA_FILE "data.dat"
 #define GRAPH_FILE "graph.txt"
-#define MAX_DATA_POINTS (1 << 8)
+#define MAX_DATA_POINTS (1 << 6)
 #define ITERATION_MULTIPLIER (1 << 6)
 
 void update_data_file(long **results, int iterations, int tests)
@@ -44,7 +44,7 @@ void init_gnuplot()
 
 int main(int argc, char const *argv[])
 {
-	bench func[] = {&merge_bench, &radix_bench, &insertion_bench, &bubble_bench, &quick_bench};
+	bench func[] = {&merge_bench, &radix_bench, &insertion_bench, &bubble_bench, &quick_bench, &shell_bench};
 	int total_benchmarks = sizeof(func) / sizeof(*func);
 
 	pthread_t threads[total_benchmarks];

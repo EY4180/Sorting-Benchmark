@@ -1,4 +1,4 @@
-#include <sorting.h>
+#include "sorting.h"
 
 void shell_sort(int *arr, int size)
 {
@@ -10,7 +10,7 @@ void shell_sort(int *arr, int size)
 }
 
 
-void shell_bench(void *input)
+void *shell_bench(void *input)
 {
 	long *args = input;
 	
@@ -27,5 +27,5 @@ void shell_bench(void *input)
 
 	free(arr);
 
-	return (void *) ((stop.tv_sec - start.tv_sec) * 1000000 + stop.tv_usec - start.tv_usec);
+	return (void *) (intptr_t) ((stop.tv_sec - start.tv_sec) * 1000000 + stop.tv_usec - start.tv_usec);
 }

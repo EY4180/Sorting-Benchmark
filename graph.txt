@@ -1,3 +1,6 @@
+set output 'graph.png'
+set terminal png
+
 set multiplot
 set size 1.0, 1.0
 set origin 0.0, 0.0
@@ -25,7 +28,8 @@ set key outside right
 
 plot 	'data.dat' u 1:4 w l title 'Insertion Sort', \
 	'data.dat' u 1:6 w l title 'Quick Sort', \
-	'data.dat' u 1:5 w l title 'Bubble Sort'
+	'data.dat' u 1:5 w l title 'Bubble Sort', \
+	'data.dat' u 1:6 w l title 'Shell Sort'
 
 unset multiplot
 

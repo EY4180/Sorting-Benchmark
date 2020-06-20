@@ -1,8 +1,8 @@
 PROGRAM = main
 
-OBJECTS = radix.o merge.o insert.o benchmark.o bubble.o quick.o util.o
+OBJECTS = radix.o merge.o insert.o benchmark.o bubble.o quick.o util.o shell.o
 HEADERS = sorting.h
-CFLAGS = -std=c99 -Wall -pedantic
+CFLAGS = -std=c99 -Wall -pedantic -Werror
 CC = gcc
 
 # build main program that depends on all objects
