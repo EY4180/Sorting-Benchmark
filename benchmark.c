@@ -52,7 +52,7 @@ void print_array(int *arr, int size)
 
 void initialize_benchmark(BENCHMARK_PARAMETERS *param, sort func)
 {
-	param->func = func;		
+	param->func = func;
 }
 
 void update_benchmark(BENCHMARK_PARAMETERS *param, int *arr, int size)
@@ -65,7 +65,7 @@ void update_benchmark(BENCHMARK_PARAMETERS *param, int *arr, int size)
 void print_benchmark(BENCHMARK_PARAMETERS param)
 {
 	printf("size : %i\n", param.size);
-	print_array(param.arr, param.size);	
+	print_array(param.arr, param.size);
 }
 
 void free_benchmark(BENCHMARK_PARAMETERS *param)
@@ -81,7 +81,6 @@ void fill_random(int *arr, int size, int max)
 		arr[pos] = rand() % (1 << max);
 }
 
-
 int main(int argc, char const *argv[])
 {
 	sort funcs[] = {&t_merge, &t_radix, &t_insert, &t_bubble, &t_quick, &t_shell};
@@ -95,8 +94,6 @@ int main(int argc, char const *argv[])
 	long **simulation_times = (long **)malloc(sizeof(long *) * MAX_DATA_POINTS);
 	for (int i = 0; i < MAX_DATA_POINTS; ++i)
 		simulation_times[i] = (long *)malloc(sizeof(long) * total_tests);
-	
-	//pthread_t threads[total_tests];
 
 	for (long iteration = 0; iteration < MAX_DATA_POINTS; ++iteration)
 	{
