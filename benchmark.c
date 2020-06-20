@@ -7,8 +7,8 @@
 #define MAX_THREADS 8
 #define DATA_FILE "data.dat"
 #define GRAPH_FILE "graph.txt"
-#define MAX_DATA_POINTS (1 << 6)
-#define ITERATION_MULTIPLIER (1 << 6)
+#define MAX_DATA_POINTS (1 << 8)
+#define ITERATION_MULTIPLIER (1 << 8)
 
 void update_data_file(long **results, int iterations, int tests)
 {
