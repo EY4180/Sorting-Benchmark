@@ -6,10 +6,9 @@ void selection_sort(int *arr, int size)
 	{
 		int index;
 		smallest(arr, element, size - 1, &index);
-
+		
 		// move smallest element to front of array
-		for (int i = index; i > 0 ; --i)
-			swap(&arr[i], &arr[i - 1]);
+		swap(&arr[element], &arr[index]);
 	}
 }
 
