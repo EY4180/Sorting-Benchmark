@@ -10,6 +10,19 @@ int largest(int *arr, int size)
     return ceil(log2(number));
 }
 
+int smallest(int *arr, int size, int *index)
+{
+    int number = *arr;
+	*index = 0;
+    for (int pos = 1; pos < size; ++pos)
+		if (arr[pos] < number)
+		{
+			number = arr[pos];
+			*index = pos;
+		}
+    return number;
+}
+
 void swap(int *a, int *b)
 {
     int temp = *a;
