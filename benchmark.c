@@ -3,16 +3,19 @@
 #include "sorting.h"
 #include <pthread.h>
 
-#define MAX_VALUE 16
-#define MAX_THREADS 8
 #define DATA_FILE "data.dat"
 #define GRAPH_FILE "graph.txt"
-#define MAX_DATA_POINTS (1 << 8)
-#define ITERATION_MULTIPLIER (1 << 6)
+#define DATA_HEADERS "Size Merge Radix Insert Selection Bubble Quick Shell"
+
+#define MAX_VALUE 16
+#define MAX_DATA_POINTS (1 << 7)
+#define ITERATION_MULTIPLIER (1 << 8)
 
 void update_data_file(long **results, int iterations, int tests)
 {
 	FILE *data = fopen(DATA_FILE, "w");
+
+	fprintf(data, "%s\n", DATA_HEADERS);
 
 	for (int i = 0; i < iterations; ++i)
 	{
@@ -42,48 +45,11 @@ void init_gnuplot()
 	fclose(gnuplotPipe);
 }
 
-void print_array(int *arr, int size)
-{
-	for (int pos = 0; pos < size; ++pos)
-		printf("%i ", arr[pos]);
-
-	printf("\n");
-}
-
-void initialize_benchmark(BENCHMARK_PARAMETERS *param, sort func)
-{
-	param->func = func;
-}
-
-void update_benchmark(BENCHMARK_PARAMETERS *param, int *arr, int size)
-{
-	param->size = size;
-	param->arr = malloc(size * sizeof(*arr));
-	memcpy(param->arr, arr, size * sizeof(*arr));
-}
-
-void print_benchmark(BENCHMARK_PARAMETERS param)
-{
-	printf("size : %i\n", param.size);
-	print_array(param.arr, param.size);
-}
-
-void free_benchmark(BENCHMARK_PARAMETERS *param)
-{
-	free(param->arr);
-}
-
-void fill_random(int *arr, int size, int max)
-{
-	srand(time(0));
-
-	for (int pos = 0; pos < size; ++pos)
-		arr[pos] = rand() % (1 << max);
-}
-
 int main(int argc, char const *argv[])
 {
-	sort funcs[] = {&t_merge, &t_radix, &t_insert, &t_bubble, &t_quick, &t_shell, &t_selection};
+	sort funcs[] = {&t_merge, &t_radix, &t_insert, &t_selection, &t_bubble, &t_quick, 
+					&t_shell,};
+
 	int total_tests = sizeof(funcs) / sizeof(*funcs);
 	pthread_t threads[total_tests];
 	BENCHMARK_PARAMETERS params[total_tests];

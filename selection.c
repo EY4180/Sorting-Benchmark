@@ -2,9 +2,10 @@
 
 void selection_sort(int *arr, int size)
 {
+	int index;
+	
 	for (int element = 0; element < size; ++element)
 	{
-		int index;
 		smallest(arr, element, size - 1, &index);
 		
 		// move smallest element to front of array

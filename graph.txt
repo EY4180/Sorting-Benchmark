@@ -1,36 +1,39 @@
-set size 1.0, 1.0
-set origin 0.0, 0.0
+set key autotitle columnheader
 
 # display linear time algorithms
-set title 'n | nlog(n) Complexity Algorithms'
+set title 'Linear'
 set xlabel 'size'
 set ylabel 'time (us)'
 set key outside right
 
-plot	'data.dat' u 1:3 w l title 'Radix Sort', \
-		'data.dat' u 1:6 w l title 'Quick Sort', \
-		'data.dat' u 1:2 w l title 'Merge Sort', \
-		'data.dat' u 1:6 w l title 'Shell Sort'
+# radix sort
+# quick sort
+# merge sort
 
-set terminal png size 1980, 1020 font "Courier, 30"
+plot	'data.dat' u 1:3 w l, 'data.dat' u 1:7 w l, 'data.dat' u 1:2 w l 
+
+set terminal png size 1980, 1020 font "Helvetica, 30"
 set output 'pictures/linear time.png'
 replot
 
 unset output
 
+set key autotitle columnheader
+
 # display n^k algorithms
-set title 'n^k Complexity Algorithms'
+set title 'Non Linear'
 set xlabel 'size'
 set ylabel 'time (us)'
 set key outside right
 
-plot 	'data.dat' u 1:4 w l title 'Insertion Sort', \
-		'data.dat' u 1:6 w l title 'Quick Sort', \
-		'data.dat' u 1:5 w l title 'Bubble Sort', \
-		'data.dat' u 1:6 w l title 'Shell Sort',  \
-		'data.dat' u 1:6 w l title 'Selection Sort'
+# insertion sort
+# selection sort
+# shell sort
+# bubble sort
 
-set terminal png size 1980, 1020 font "Courier, 30"
+plot 	'data.dat' u 1:4 w l,'data.dat' u 1:5 w l,'data.dat' u 1:8 w l,'data.dat' u 1:6 w l 
+
+set terminal png size 1980, 1020 font "Helvetica, 30"
 set output 'pictures/non-linear.png'
 replot
 
