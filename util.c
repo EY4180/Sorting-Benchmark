@@ -10,16 +10,17 @@ int largest(int *arr, int size)
     return ceil(log2(number));
 }
 
-int smallest(int *arr, int size, int *index)
+int smallest(int *arr, int start, int end, int *index)
 {
-    int number = *arr;
-	*index = 0;
-    for (int pos = 1; pos < size; ++pos)
+    int number = arr[start];
+	*index = start;
+    for (int pos = start + 1; pos <= end; ++pos)
 		if (arr[pos] < number)
 		{
 			number = arr[pos];
 			*index = pos;
 		}
+
     return number;
 }
 

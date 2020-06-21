@@ -32,7 +32,11 @@ extern void t_quick(int *arr, int size);
 extern void shell_sort(int *arr, int size);
 extern void t_shell(int *arr, int size);
 
+extern void selection_sort(int *arr, int size);
+extern void t_selection(int *arr, int size);
+
+
 extern void swap(int *a, int *b);
 extern int largest(int *arr, int size);
 extern void *benchmark(void *args);
-extern int smallest(int *arr, int size, int *index);
+extern int smallest(int *arr, int start, int end, int *index);

@@ -8,7 +8,7 @@
 #define DATA_FILE "data.dat"
 #define GRAPH_FILE "graph.txt"
 #define MAX_DATA_POINTS (1 << 8)
-#define ITERATION_MULTIPLIER (1 << 8)
+#define ITERATION_MULTIPLIER (1 << 6)
 
 void update_data_file(long **results, int iterations, int tests)
 {
@@ -83,7 +83,7 @@ void fill_random(int *arr, int size, int max)
 
 int main(int argc, char const *argv[])
 {
-	sort funcs[] = {&t_merge, &t_radix, &t_insert, &t_bubble, &t_quick, &t_shell};
+	sort funcs[] = {&t_merge, &t_radix, &t_insert, &t_bubble, &t_quick, &t_shell, &t_selection};
 	int total_tests = sizeof(funcs) / sizeof(*funcs);
 	pthread_t threads[total_tests];
 	BENCHMARK_PARAMETERS params[total_tests];
