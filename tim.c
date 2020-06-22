@@ -1,5 +1,42 @@
 #include "sorting.h"
 
+const int X = 0;
+const int Y = 1;
+const int Z = 2;
+
+typedef struct run
+{
+	int *start;
+	int size;
+} RUN;
+
+void merge_runs(RUN **run_list, int *arr)
+{	
+	// do while the number of runs is more than 1
+	// probably keep track of the number of runs in the list
+
+	// merge runs Y with X or Z (whichever one is smaller)
+	if(run_list[Z]->size <= run_list[Y]->size + run_list[X]->size || run_list[Y]->size <= run_list[X]->size)
+	{
+		// merge Z and Y
+		if(run_list[X]->size > run_list[Z]->size)
+		{
+			// run merge between Z and Y arrays
+
+			// merge runs Z and Y
+		}
+		// merge X and Y
+		else
+		{
+			// run merge between X and Y arrays
+
+			// merge runs X and Y
+			*run_list[X] = *run_list[Y];			
+		}
+		
+	}
+}
+
 int get_minrun(int size)
 {
 	int result = 0;
@@ -37,7 +74,7 @@ void tim_sort(int *arr, int size)
 	int end = 0;
 	int minrun = get_minrun(size);
 
-	// construct runs in random array
+	// construct runs in array
 	while (end < size)
 	{
 		end = find_next_run(arr, size, start);
