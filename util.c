@@ -83,3 +83,50 @@ void fill_random(int *arr, int size, int max)
 	for (int pos = 0; pos < size; ++pos)
 		arr[pos] = rand() % (1 << max);
 }
+
+/**
+ * a binary search for a strictly ascending array, it will return the index of
+ * where the key needs to be inserted in the array. all elements from that 
+ * position onwards must be shifted right.
+ */
+int binary_search(int *arr, int size, int key)
+{
+	// check key is within range of arrays max and min values
+	int high_index = size - 1;
+	if (arr[high_index] < key)
+		return size;
+
+	int low_index = 0;
+	if (arr[low_index] > key)
+		return 0;
+
+	int current_index = (high_index - low_index) / 2;
+	do
+	{
+		if (arr[current_index] < key)
+		{
+			low_index = current_index;
+			current_index += (high_index - low_index) / 2;
+		}
+		else if (arr[current_index] > key)
+		{
+			high_index = current_index;
+			current_index -= (high_index - low_index) / 2;
+		}
+		else
+		{
+			return current_index;
+		}
+
+	} while (((high_index - low_index) / 2));
+
+	return arr[low_index] > key ? low_index : high_index;
+}
+
+void insert_into_array(int *arr, int size, int key)
+{
+	int position = binary_search(arr, size, key);
+	for (int i = size; i > position; --i)
+		arr[i] = arr[i - 1];
+	arr[position] = key;
+}

@@ -16,7 +16,21 @@ void insertion_sort(int *arr, int size)
 	}
 }
 
+void bin_insertion_sort(int *arr, int size)
+{
+	for (int i = 1; i < size; ++i)
+	{
+		long key = arr[i];
+		insert_into_array(arr, i, key);
+	}
+}
+
 void t_insert(int *arr, int size)
 {
 	insertion_sort(arr, size);
+}
+
+void t_bin_insert(int *arr, int size)
+{
+	bin_insertion_sort(arr, size);
 }

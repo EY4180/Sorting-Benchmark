@@ -5,10 +5,10 @@
 
 #define DATA_FILE "data.dat"
 #define GRAPH_FILE "graph.txt"
-#define DATA_HEADERS "Size Merge Radix Insert Selection Bubble Quick Shell"
+#define DATA_HEADERS "Size Merge Radix Insert Selection Bubble Quick Shell Bin"
 
 #define MAX_VALUE 16
-#define MAX_DATA_POINTS (1 << 7)
+#define MAX_DATA_POINTS (1 << 6)
 #define ITERATION_MULTIPLIER (1 << 8)
 
 void update_data_file(long **results, int iterations, int tests)
@@ -48,7 +48,7 @@ void init_gnuplot()
 int main(int argc, char const *argv[])
 {
 	sort funcs[] = {&t_merge, &t_radix, &t_insert, &t_selection, &t_bubble, &t_quick, 
-					&t_shell,};
+					&t_shell, &t_bin_insert};
 
 	int total_tests = sizeof(funcs) / sizeof(*funcs);
 	pthread_t threads[total_tests];
@@ -91,6 +91,17 @@ int main(int argc, char const *argv[])
 	init_gnuplot();
 
 	free(simulation_times);
+	
 
+	/*
+	int size = 20;
+	int *arr = malloc(size * sizeof(*arr));
+	fill_random(arr, size, 7);
+	print_array(arr, size);
+	t_bin_insert(arr, size);
+	print_array(arr, size);
+	printf("%i \n", binary_search(arr, size, 100));
+	getchar();
+	*/
 	return EXIT_SUCCESS;
 }

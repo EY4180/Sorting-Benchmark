@@ -22,6 +22,7 @@ extern void t_merge(int *arr, int size);
 
 extern void insertion_sort(int *arr, int size);
 extern void t_insert(int *arr, int size);
+extern void t_bin_insert(int *arr, int size);
 
 extern void bubble_sort(int *arr, int size);
 extern void t_bubble(int *arr, int size);
@@ -35,6 +36,7 @@ extern void t_shell(int *arr, int size);
 extern void selection_sort(int *arr, int size);
 extern void t_selection(int *arr, int size);
 
+extern int binary_search(int *arr, int size, int key);
 
 extern void swap(int *a, int *b);
 extern int largest(int *arr, int size);
@@ -46,3 +48,5 @@ extern void print_benchmark(BENCHMARK_PARAMETERS param);
 extern void free_benchmark(BENCHMARK_PARAMETERS *param);
 extern void print_array(int *arr, int size);
 extern void fill_random(int *arr, int size, int max);
+extern int binary_search(int *arr, int size, int key);
+extern void insert_into_array(int *arr, int size, int key);
