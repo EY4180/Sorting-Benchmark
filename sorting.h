@@ -36,8 +36,9 @@ extern void t_shell(int *arr, int size);
 extern void selection_sort(int *arr, int size);
 extern void t_selection(int *arr, int size);
 
-extern int binary_search(int *arr, int size, int key);
+extern void tim_sort(int *arr, int size);
 
+extern int binary_search(int *arr, int size, int key);
 extern void swap(int *a, int *b);
 extern int largest(int *arr, int size);
 extern void *benchmark(void *args);
